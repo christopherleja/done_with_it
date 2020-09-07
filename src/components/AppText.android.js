@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, Text, View, } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
-export default function AppText({ children }) {
+export default function AppText({ children, style }) {
   return (
-  <Text style={styles.text}>{children}</Text>
+  <Text style={[styles.text, style]}>{children}</Text>
   )
 }
 

@@ -18,14 +18,27 @@ import WelcomeScreen from './src/screens/WelcomeScreen'
 import ViewImageScreen from './src/screens/ViewImageScreen';
 import AppText from './src/components/AppText'
 import ButtonCustom from './src/components/ButtonCustom';
+import Card from './src/components/Card'
 
 
 export default function App() {
   
   return (
     <>
-    
-    <WelcomeScreen />
+    <View style={{
+      backgroundColor: '#f8f4f4',
+      padding: 20,
+      paddingTop: 100,
+    }}>
+      <Card
+      title="red jacket for sale"
+      subTitle="$100"
+      image={require('./src/images/jacket.jpg')}
+      >
+
+      </Card>
+    </View>
+    {/* <WelcomeScreen /> */}
     
   </>
   );
