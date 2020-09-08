@@ -19,13 +19,14 @@ import ViewImageScreen from './src/screens/ViewImageScreen';
 import AppText from './src/components/AppText'
 import ButtonCustom from './src/components/ButtonCustom';
 import Card from './src/components/Card'
+import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 
 
 export default function App() {
   
   return (
     <>
-    <View style={{
+    {/* <View style={{
       backgroundColor: '#f8f4f4',
       padding: 20,
       paddingTop: 100,
@@ -37,7 +38,8 @@ export default function App() {
       >
 
       </Card>
-    </View>
+    </View> */}
+    <ListingDetailsScreen />
     {/* <WelcomeScreen /> */}
     
   </>
