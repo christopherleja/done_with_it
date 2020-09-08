@@ -39,7 +39,8 @@ export default function App() {
 
       </Card>
     </View> */}
-    <ListingDetailsScreen />
+    {/* <ListingDetailsScreen /> */}
+    <ViewImageScreen />
     {/* <WelcomeScreen /> */}
     
   </>
