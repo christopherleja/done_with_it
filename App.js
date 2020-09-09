@@ -21,13 +21,20 @@ import ButtonCustom from './src/components/ButtonCustom';
 import Card from './src/components/Card'
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
+import Screen from './src/components/Screen';
+import Icon from './src/components/Icon'
+import ListItem from './src/components/ListItem';
+import AccountScreen from './src/screens/AccountScreen';
+import ListingsScreen from './src/screens/ListingsScreen';
 
 
 export default function App() {
   
   return (
     <>
-    <MessagesScreen />
+    <ListingsScreen />
+    {/* <AccountScreen /> */}
+    {/* <MessagesScreen /> */}
     {/* <View style={{
       backgroundColor: '#f8f4f4',
       padding: 20,
