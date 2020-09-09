@@ -20,12 +20,14 @@ import AppText from './src/components/AppText'
 import ButtonCustom from './src/components/ButtonCustom';
 import Card from './src/components/Card'
 import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
+import MessagesScreen from './src/screens/MessagesScreen';
 
 
 export default function App() {
   
   return (
     <>
+    <MessagesScreen />
     {/* <View style={{
       backgroundColor: '#f8f4f4',
       padding: 20,
@@ -40,7 +42,7 @@ export default function App() {
       </Card>
     </View> */}
     {/* <ListingDetailsScreen /> */}
-    <ViewImageScreen />
+    {/* <ViewImageScreen /> */}
     {/* <WelcomeScreen /> */}
     
   </>
