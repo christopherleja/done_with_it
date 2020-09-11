@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { 
     Dimensions,
     StyleSheet, 
@@ -10,7 +10,9 @@ import {
     TouchableWithoutFeedback, 
     TouchableHighlight,
     TouchableOpacity,
-    SafeAreaView,  
+    SafeAreaView,
+    TextInput,
+    Switch,
   } from 'react-native';
 
 
@@ -26,32 +28,33 @@ import Icon from './src/components/Icon'
 import ListItem from './src/components/ListItem';
 import AccountScreen from './src/screens/AccountScreen';
 import ListingsScreen from './src/screens/ListingsScreen';
+import AppTextInput from './src/components/AppTextInput'
+import AppPicker from './src/components/AppPicker';
 
 
 export default function App() {
   
+  const categories = [
+    { label: "Furniture", value: 1},
+    { label: "Clothing", value: 2},
+    { label: "Sporting Goods", value: 3},
+    { label: "Other Stuff", value: 4}
+  ]
+  
+  const [category, setCategory ] = useState(categories[0])
   return (
     <>
-    <ListingsScreen />
-    {/* <AccountScreen /> */}
-    {/* <MessagesScreen /> */}
-    {/* <View style={{
-      backgroundColor: '#f8f4f4',
-      padding: 20,
-      paddingTop: 100,
-    }}>
-      <Card
-      title="red jacket for sale"
-      subTitle="$100"
-      image={require('./src/images/jacket.jpg')}
-      >
-
-      </Card>
-    </View> */}
-    {/* <ListingDetailsScreen /> */}
-    {/* <ViewImageScreen /> */}
-    {/* <WelcomeScreen /> */}
-    
+    <Screen>
+      <AppPicker 
+        items={categories} 
+          icon='apps'
+          placeholder="category"
+          selectedItem={category}
+          onSelectItem={item => setCategory(item)}
+          />
+      <AppTextInput icon="email" placeholder="email"></AppTextInput>
+      
+    </Screen>
   </>
   );
 }
