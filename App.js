@@ -30,39 +30,14 @@ import AccountScreen from './src/screens/AccountScreen';
 import ListingsScreen from './src/screens/ListingsScreen';
 import AppTextInput from './src/components/AppTextInput'
 import AppPicker from './src/components/AppPicker';
+import LoginScreen from './src/screens/LoginScreen';
 
 
 export default function App() {
-  
-  const categories = [
-    { label: "Furniture", value: 1},
-    { label: "Clothing", value: 2},
-    { label: "Sporting Goods", value: 3},
-    { label: "Other Stuff", value: 4}
-  ]
-  
-  const [category, setCategory ] = useState(categories[0])
   return (
     <>
-    <Screen>
-      <AppPicker 
-        items={categories} 
-          icon='apps'
-          placeholder="category"
-          selectedItem={category}
-          onSelectItem={item => setCategory(item)}
-          />
-      <AppTextInput icon="email" placeholder="email"></AppTextInput>
-      
-    </Screen>
+    <LoginScreen />
   </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-})
