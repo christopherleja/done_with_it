@@ -7,7 +7,10 @@ import ButtonCustom from '../ButtonCustom'
 export default function SubmitButton({ title }) {
   const { handleSubmit } = useFormikContext()
   return (
-    <ButtonCustom title={title} onPress={handleSubmit}></ButtonCustom>
+    <ButtonCustom 
+    title={title} 
+    onPress={handleSubmit}
+    ></ButtonCustom>
   )
 }
 

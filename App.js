@@ -25,18 +25,20 @@ import ListingDetailsScreen from './src/screens/ListingDetailsScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
 import Screen from './src/components/Screen';
 import Icon from './src/components/Icon'
-import ListItem from './src/components/ListItem';
+import ListItem from './src/components/lists/ListItem';
 import AccountScreen from './src/screens/AccountScreen';
 import ListingsScreen from './src/screens/ListingsScreen';
 import AppTextInput from './src/components/AppTextInput'
 import AppPicker from './src/components/AppPicker';
 import LoginScreen from './src/screens/LoginScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
+import ListingEditScreen from './src/screens/ListingEditScreen';
 
 
 export default function App() {
   return (
     <>
-    <LoginScreen />
+    <ListingEditScreen />
   </>
   );
 }

@@ -22,7 +22,11 @@ export default function AppPicker({ icon, items, onSelectItem, selectedItem, pla
           style={styles.icon} 
           name={icon} 
           />}
-        <AppText style={styles.text}>{selectedItem ? selectedItem.label : placeholder }</AppText>
+        
+        {selectedItem ? (
+          <AppText style={styles.text}>{selectedItem.label}</AppText> 
+            ): ( 
+          <AppText style={styles.placeholder}>{placeholder}</AppText>)}
         <MaterialCommunityIcons 
           size={25} 
           name='chevron-down'
@@ -65,5 +69,10 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1
+  },
+  placeholder: {
+    color: colors.grey,
+    flex: 1
   }
+  
 })
