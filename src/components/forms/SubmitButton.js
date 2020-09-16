@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet } from 'react-native'
 import { useFormikContext } from 'formik'
 
-import ButtonCustom from './ButtonCustom'
+import ButtonCustom from '../ButtonCustom'
 
 export default function SubmitButton({ title }) {
   const { handleSubmit } = useFormikContext()
