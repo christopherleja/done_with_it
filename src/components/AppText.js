@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Platform } from 'react-native'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+
 
 export default function AppText({ children, style }) {
   return (
