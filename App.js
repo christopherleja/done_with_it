@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Dimensions,
     StyleSheet, 
@@ -33,13 +33,20 @@ import AppPicker from './src/components/AppPicker';
 import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import ListingEditScreen from './src/screens/ListingEditScreen';
-
+import * as ImagePicker from 'expo-image-picker'
 
 export default function App() {
-  return (
-    <>
-    <ListingEditScreen />
-  </>
-  );
+  
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync()
+    if (!granted){
+      alert("Please enable permission to access the camera library")
+    }
+  }
+
+  useEffect(() => {
+    requestPermission();
+  }, [])
+  return <Screen></Screen>
 }
 
