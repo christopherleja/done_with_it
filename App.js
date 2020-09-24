@@ -34,9 +34,12 @@ import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import ListingEditScreen from './src/screens/ListingEditScreen';
 import * as ImagePicker from 'expo-image-picker'
+import * as Permissions from 'expo-permissions'
 
 export default function App() {
   
+  const [ imageUri, setImageUri ] = useState()
+
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraRollPermissionsAsync()
     if (!granted){
@@ -44,9 +47,22 @@ export default function App() {
     }
   }
 
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync();
+      if (!result.cancelled)
+        setImageUri(result.uri)
+    } catch (error) {
+      console.log("Error Reading Image", error)
+    }
+  }
+
   useEffect(() => {
     requestPermission();
   }, [])
-  return <Screen></Screen>
+  return <Screen>
+    <Button title="Select Image" onPress={selectImage}/>
+    <Image source={{ uri: imageUri }} style={{ width: 200, height: 200}}/>
+  </Screen>
 }
 
