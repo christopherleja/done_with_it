@@ -35,6 +35,7 @@ import RegisterScreen from './src/screens/RegisterScreen';
 import ListingEditScreen from './src/screens/ListingEditScreen';
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
+import ImageInput from './src/components/ImageInput';
 
 export default function App() {
   
@@ -61,8 +62,10 @@ export default function App() {
     requestPermission();
   }, [])
   return <Screen>
-    <Button title="Select Image" onPress={selectImage}/>
-    <Image source={{ uri: imageUri }} style={{ width: 200, height: 200}}/>
+    <ImageInput 
+      imageUri={imageUri}
+      onChangeImage={uri => setImageUri(uri)}
+    />
   </Screen>
 }
 
