@@ -36,35 +36,25 @@ import ListingEditScreen from './src/screens/ListingEditScreen';
 import * as ImagePicker from 'expo-image-picker'
 import * as Permissions from 'expo-permissions'
 import ImageInput from './src/components/ImageInput';
+import ImageInputList from './src/components/ImageInputList';
 
 export default function App() {
   
-  const [ imageUri, setImageUri ] = useState()
+  const [ imageUris, setImageUris ] = useState([])
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync()
-    if (!granted){
-      alert("Please enable permission to access the camera library")
-    }
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri]);
+  }
+  
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imgUri => imgUri !== uri))
   }
 
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.cancelled)
-        setImageUri(result.uri)
-    } catch (error) {
-      console.log("Error Reading Image", error)
-    }
-  }
-
-  useEffect(() => {
-    requestPermission();
-  }, [])
   return <Screen>
-    <ImageInput 
-      imageUri={imageUri}
-      onChangeImage={uri => setImageUri(uri)}
+    <ImageInputList
+      imageUris={imageUris}
+      onAddImage={handleAdd}
+      onRemoveImage={handleRemove}
     />
   </Screen>
 }
