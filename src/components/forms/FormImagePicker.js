@@ -15,7 +15,11 @@ export default function FormImagePicker({ name }) {
   }
   
   const handleRemove = uri => {
-    setFieldValue(name, imageUris.filter(imgUri => imgUri !== uri))
+    setFieldValue(
+      name, 
+      imageUris.filter(imgUri => 
+        imgUri !== uri
+      ))
   }
 
   return (
@@ -24,10 +28,11 @@ export default function FormImagePicker({ name }) {
         imageUris={imageUris}
         onAddImage={handleAdd}
         onRemoveImage={handleRemove}
-        />
-      <ErrorMessage error={errors} visible={touched[name]}/>
+      />
+      <ErrorMessage 
+        error={errors[name]} 
+        visible={touched[name]}
+      />
     </>
   )
 }
-
-const styles = StyleSheet.create({})

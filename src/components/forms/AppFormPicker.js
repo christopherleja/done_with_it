@@ -24,7 +24,7 @@ export default function AppFormPicker({
     width={width}
     PickerItemComponent={PickerItemComponent}
     />
-    <ErrorMessage error={errors} visible={touched[name]}/>
+    <ErrorMessage error={errors[name]} visible={touched[name]}/>
     </>
   )
 }
