@@ -40,35 +40,39 @@ import ImageInputList from './src/components/ImageInputList';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import AuthNavigator from './src/navigation/AuthNavigator';
+import navigationTheme from './src/navigation/navigationTheme';
+import AppNavigator from './src/navigation/AppNavigator';
 
-const Tweets = ({ navigation }) => (
-  <Screen>
-    <Text>Tweet</Text>
-    <Button
-      title="View Tweet"
-      onPress={() => navigation.navigate("TweetDetails")}
-    />
-  </Screen>
+const Account = () => (
+  (
+    <Screen>
+      <Text>Account</Text>
+    </Screen>
+  )
 )
 
-const TweetDetails = () => (
-  <Screen>
-    <Text>Tweetails</Text>
-  </Screen>
-)
-
-const Stack = createStackNavigator();
-const StackNavigator = () => (
-  <Stack.Navigator>
-    <Stack.Screen name="Tweets" component={Tweets}/>
-    <Stack.Screen name="TweetDetails" component={TweetDetails}/>
-  </Stack.Navigator>
-)
+const Tab = createBottomTabNavigator();
+const TabNavigator = () => {
+  return( 
+    <Tab.Navigator
+    tabBarOptions={{
+      activeBackgroundColor: 'tomato',
+      activeTintColor: 'white',
+      inactiveBackgroundColor: '#eee',
+      inactiveTintColor: 'black'
+    }}>
+      <Tab.Screen name="Welcome" component={StackNavigator} 
+      options={{tabBarVisible: false, tabBarAccessibilityLabel: 'Welcome'}}/>
+      <Tab.Screen name="Account" component={Account} />
+  </Tab.Navigator>)
+}
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <StackNavigator />
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
     </NavigationContainer>
   )
 }

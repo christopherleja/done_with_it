@@ -20,7 +20,7 @@ const listings = [
   },
 ]
 
-export default function ListingsScreen() {
+export default function ListingsScreen({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <FlatList 
@@ -30,6 +30,7 @@ export default function ListingsScreen() {
           <Card title={item.title}
           subTitle={'$' + item.price}
           image={item.image}
+          onPress={() => navigation.navigate("ListingDetails", item)}
           />  
       }
         />

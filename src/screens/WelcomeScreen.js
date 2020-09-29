@@ -5,7 +5,7 @@ import colors from '../config/colors'
 import ButtonCustom from '../components/ButtonCustom'
 
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground 
     source={require('../images/background.jpg')}
@@ -20,8 +20,8 @@ export default function WelcomeScreen() {
         <Text style={styles.tagline}>Sell what you don't need</Text>
       </View>
       <View style={styles.container}>
-        <ButtonCustom title="login" onPress={()=> console.log('word')}/>
-        <ButtonCustom title="register" onPress={()=> console.log('register')} color="secondary"/>
+        <ButtonCustom title="login" onPress={()=> navigation.navigate('Login')}/>
+        <ButtonCustom title="register" onPress={()=> navigation.navigate('Register')} color="secondary"/>
       </View>
     </ImageBackground>
   )
