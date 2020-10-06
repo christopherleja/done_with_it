@@ -14,6 +14,7 @@ import {
     TextInput,
     Switch,
   } from 'react-native';
+import NetInfo, { useNetInfo} from '@react-native-community/netinfo';
 
 
 import WelcomeScreen from './src/screens/WelcomeScreen'
@@ -45,31 +46,9 @@ import AuthNavigator from './src/navigation/AuthNavigator';
 import navigationTheme from './src/navigation/navigationTheme';
 import AppNavigator from './src/navigation/AppNavigator';
 
-const Account = () => (
-  (
-    <Screen>
-      <Text>Account</Text>
-    </Screen>
-  )
-)
-
-const Tab = createBottomTabNavigator();
-const TabNavigator = () => {
-  return( 
-    <Tab.Navigator
-    tabBarOptions={{
-      activeBackgroundColor: 'tomato',
-      activeTintColor: 'white',
-      inactiveBackgroundColor: '#eee',
-      inactiveTintColor: 'black'
-    }}>
-      <Tab.Screen name="Welcome" component={StackNavigator} 
-      options={{tabBarVisible: false, tabBarAccessibilityLabel: 'Welcome'}}/>
-      <Tab.Screen name="Account" component={Account} />
-  </Tab.Navigator>)
-}
-
 export default function App() {
+  const netInfo = useNetInfo()
+  
   return (
     <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
