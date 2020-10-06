@@ -45,14 +45,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import AuthNavigator from './src/navigation/AuthNavigator';
 import navigationTheme from './src/navigation/navigationTheme';
 import AppNavigator from './src/navigation/AppNavigator';
+import OfflineNotice from './src/components/OfflineNotice';
 
 export default function App() {
   const netInfo = useNetInfo()
   
   return (
-    <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
-    </NavigationContainer>
+    <>
+      <OfflineNotice />
+      <NavigationContainer theme={navigationTheme}>
+        <AppNavigator />
+      </NavigationContainer>
+    </>
   )
 }
 
