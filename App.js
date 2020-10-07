@@ -47,9 +47,22 @@ import navigationTheme from './src/navigation/navigationTheme';
 import AppNavigator from './src/navigation/AppNavigator';
 import OfflineNotice from './src/components/OfflineNotice';
 import AuthContext from './src/auth/context';
+import authStorage from './src/auth/storage';
+import JwtDecode from 'jwt-decode';
+
 
 export default function App() {
   const [ user, setUser ] = useState()
+
+  const restoreToken = async () => {
+    const token = await authStorage.getToken()
+    if (!token) return; 
+    setUser(JwtDecode(token))
+  }
+
+  useEffect(() => {
+    restoreToken()
+  }, []);
   
   return (
     <AuthContext.Provider value={{ user, setUser }}>

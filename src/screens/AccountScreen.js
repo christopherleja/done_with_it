@@ -7,6 +7,7 @@ import Icon from '../components/Icon'
 import colors from '../config/colors'
 import ListItemSeparator from '../components/lists/ListItemSeparator'
 import AuthContext from '../auth/context'
+import authStorage from '../auth/storage'
 
 const menuItems = [
   {
@@ -27,7 +28,12 @@ const menuItems = [
 ]
 
 export default function AccountScreen({ navigation }) {
-  const { user } = useContext(AuthContext)
+  const { user, setUser } = useContext(AuthContext)
+
+  const handleLogout = () => {
+    setUser(null);
+    authStorage.removeToken()
+  }
 
   return (
     <Screen style={styles.screen}>
@@ -57,8 +63,11 @@ export default function AccountScreen({ navigation }) {
         </FlatList>
       </View>
         <ListItem title="Log Out" 
-        IconComponent={
-          <Icon name="logout" backgroundColor={colors.yellow}/>
+          onPress={handleLogout}
+          IconComponent={
+            <Icon name="logout" 
+              backgroundColor={colors.yellow}
+              />
         }
         />
     </Screen>
