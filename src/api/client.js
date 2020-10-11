@@ -2,8 +2,10 @@ import { create } from 'apisauce';
 import cache from '../utility/cache'
 import authStorage from '../auth/storage'
 
+import settings from '../config/settings'
+
 export default client = create({
-  baseURL: "http://192.168.1.24:9000/api"
+  baseURL: settings.baseURL
 })
 
 client.addAsyncRequestTransform(async (request) => {
